@@ -163,7 +163,7 @@ theorem myTheorem : 2 + 2 = 4 := rfl
 
 ### 왜 이렇게 설계했을까?
 
-**"명제 = 타입, 증명 = 값"**이라는 대응 관계를 **커리-하워드 대응**(Curry-Howard Correspondence)이라고 한다.
+**명제 = 타입, 증명 = 값**이라는 대응 관계를 **커리-하워드 대응**(Curry-Howard Correspondence)이라고 한다.
 
 ```
 논리학          ↔    프로그래밍
