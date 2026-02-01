@@ -766,7 +766,7 @@ exact "여기 밀가루가 있다" (P)
 
 ### ∧의 의미
 
-`P ∧ Q`는 **"P이고 Q이다"**를 의미한다.
+`P ∧ Q`는 **P이고 Q이다**를 의미한다.
 
 ```lean
 #check (True ∧ True)   -- True ∧ True : Prop
@@ -939,7 +939,7 @@ P ∧ Q → Q ∧ P 증명하기
 
 ### ∨의 의미
 
-`P ∨ Q`는 **"P이거나 Q이다"**를 의미한다.
+`P ∨ Q`는 **P이거나 Q이다**를 의미한다.
 
 ```lean
 #check (True ∨ False)   -- True ∨ False : Prop
@@ -1103,7 +1103,7 @@ theorem or_comm (P Q : Prop) : P ∨ Q → Q ∨ P := by
 
 ### →의 의미
 
-`P → Q`는 **"P이면 Q이다"**를 의미한다.
+`P → Q`는 **P이면 Q이다**를 의미한다.
 
 ```lean
 #check (True → False)   -- True → False : Prop
