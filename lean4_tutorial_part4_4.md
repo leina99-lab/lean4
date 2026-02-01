@@ -145,7 +145,7 @@ example (P Q : Prop) (hpq : P → Q) (hp : P) : Q := by
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (P Q : Prop) (hpq : P → Q) (hp : P) : Q := by
@@ -170,7 +170,7 @@ example (P Q R : Prop) (h1 : P → Q) (h2 : Q → R) (hp : P) : R := by
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (P Q R : Prop) (h1 : P → Q) (h2 : Q → R) (hp : P) : R := by
@@ -249,7 +249,7 @@ example (P Q : Prop) (hpq : P → Q) (hnq : ¬Q) : ¬P := by
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (P Q : Prop) (hpq : P → Q) (hnq : ¬Q) : ¬P := by
@@ -275,7 +275,7 @@ example (Smart Passed : Prop) (h1 : Smart → Passed) (h2 : ¬Passed) : ¬Smart 
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (Smart Passed : Prop) (h1 : Smart → Passed) (h2 : ¬Passed) : ¬Smart := by
@@ -335,7 +335,7 @@ example (A B C : Prop) (hab : A → B) (hbc : B → C) : A → C := by
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (A B C : Prop) (hab : A → B) (hbc : B → C) : A → C := by
@@ -357,7 +357,7 @@ example (A B C D : Prop) (h1 : A → B) (h2 : B → C) (h3 : C → D) : A → D 
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (A B C D : Prop) (h1 : A → B) (h2 : B → C) (h3 : C → D) : A → D := by
@@ -428,7 +428,7 @@ example (P Q : Prop) (hpq : P ∨ Q) (hnp : ¬P) : Q := by
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (P Q : Prop) (hpq : P ∨ Q) (hnp : ¬P) : Q := by
@@ -449,7 +449,7 @@ example (P Q : Prop) (hpq : P ∨ Q) (hnq : ¬Q) : P := by
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (P Q : Prop) (hpq : P ∨ Q) (hnq : ¬Q) : P := by
@@ -520,7 +520,7 @@ example (P Q : Prop) (hq : Q) : P ∨ Q := by
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (P Q : Prop) (hq : Q) : P ∨ Q := by
@@ -540,7 +540,7 @@ example (P Q : Prop) (h : P ∧ Q) : Q := by
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (P Q : Prop) (h : P ∧ Q) : Q := by
@@ -559,7 +559,7 @@ example (P Q : Prop) (hp : P) (hq : Q) : P ∧ Q := by
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (P Q : Prop) (hp : P) (hq : Q) : P ∧ Q := by
@@ -630,7 +630,7 @@ theorem double_swap (P Q : Prop) : P ∧ Q → P ∧ Q := by
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 lemma and_comm_lemma (P Q : Prop) : P ∧ Q → Q ∧ P := by
@@ -712,7 +712,7 @@ example (P Q : Prop) (h : P ↔ Q) (hp : P) : Q := by
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (P Q : Prop) (h : P ↔ Q) (hp : P) : Q := by
@@ -731,7 +731,7 @@ example (P Q : Prop) (h : P ↔ Q) (hq : Q) : P := by
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (P Q : Prop) (h : P ↔ Q) (hq : Q) : P := by
@@ -750,7 +750,7 @@ example (P : Prop) : P ↔ P := by
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (P : Prop) : P ↔ P := by
@@ -774,7 +774,7 @@ example (P Q : Prop) (h : P ↔ Q) : Q ↔ P := by
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (P Q : Prop) (h : P ↔ Q) : Q ↔ P := by
@@ -834,7 +834,7 @@ example (n : ℤ) (h : ∃ k, n = 2*k) : ∃ m, n^2 = 2*m := by
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (n : ℤ) (h : ∃ k, n = 2*k) : ∃ m, n^2 = 2*m := by
@@ -858,7 +858,7 @@ example (a b : ℤ) (ha : ∃ k, a = 2*k) (hb : ∃ l, b = 2*l) : ∃ m, a + b =
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (a b : ℤ) (ha : ∃ k, a = 2*k) (hb : ∃ l, b = 2*l) : ∃ m, a + b = 2*m := by
@@ -920,7 +920,7 @@ example (P Q : Prop) (h : ¬Q → ¬P) : P → Q := by
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (P Q : Prop) (h : ¬Q → ¬P) : P → Q := by
@@ -948,7 +948,7 @@ example (n : ℤ) (h : ∃ k, n^2 = 2*k) : ∃ m, n = 2*m := by
 ```
 
 <details>
-<summary>💡 힌트</summary>
+<summary> 힌트</summary>
 
 이 문제는 실제로 정수론의 깊은 결과가 필요하다. 교재에서는 개념 설명용으로 사용하지만, Lean4에서 엄밀하게 증명하려면 추가적인 보조정리가 필요하다.
 
@@ -1012,7 +1012,7 @@ example (P : Prop) (h : ¬P → False) : P := by
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (P : Prop) (h : ¬P → False) : P := by
@@ -1029,7 +1029,7 @@ example (P : Prop) (h : ¬¬P) : P := by
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (P : Prop) (h : ¬¬P) : P := by
@@ -1136,7 +1136,7 @@ example (P : ℕ → Prop) (h : ∀ n, P n) : P 42 := by
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (P : ℕ → Prop) (h : ∀ n, P n) : P 42 := by
@@ -1155,7 +1155,7 @@ example (P : ℕ → Prop) (h : ∀ n, P n) : ∀ m, P m := by
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (P : ℕ → Prop) (h : ∀ n, P n) : ∀ m, P m := by
@@ -1175,7 +1175,7 @@ example : ∃ n : ℕ, n % 2 = 1 := by
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example : ∃ n : ℕ, n % 2 = 1 := by
@@ -1195,7 +1195,7 @@ example (h : ∃ n : ℕ, n % 2 = 0) : ∃ m : ℕ, (m + 2) % 2 = 0 := by
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (h : ∃ n : ℕ, n % 2 = 0) : ∃ m : ℕ, (m + 2) % 2 = 0 := by
@@ -1253,7 +1253,7 @@ example (P Q : ℕ → Prop) (h1 : ∀ n, P n → Q n) (h2 : P 7) : Q 7 := by
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (P Q : ℕ → Prop) (h1 : ∀ n, P n → Q n) (h2 : P 7) : Q 7 := by
@@ -1273,7 +1273,7 @@ example (P Q : α → Prop) (h1 : ∀ x, P x → Q x) (h2 : ¬Q a) : ¬P a := by
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (P Q : α → Prop) (h1 : ∀ x, P x → Q x) (h2 : ¬Q a) : ¬P a := by
@@ -1302,7 +1302,7 @@ example (Human Mortal : Prop) (h1 : Human → Mortal) (h2 : Human) : Mortal := b
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (Human Mortal : Prop) (h1 : Human → Mortal) (h2 : Human) : Mortal := by
@@ -1322,7 +1322,7 @@ example (EightLegs Spider : Prop) (h1 : ¬EightLegs → ¬Spider) (h2 : Spider) 
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (EightLegs Spider : Prop) (h1 : ¬EightLegs → ¬Spider) (h2 : Spider) : EightLegs := by
@@ -1343,7 +1343,7 @@ example (MathMajor CSMajor : Prop) (h : MathMajor) : MathMajor ∨ CSMajor := by
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (MathMajor CSMajor : Prop) (h : MathMajor) : MathMajor ∨ CSMajor := by
@@ -1366,7 +1366,7 @@ example (MathMajor CSMajor : Prop) (h : MathMajor ∧ CSMajor) : MathMajor := by
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (MathMajor CSMajor : Prop) (h : MathMajor ∧ CSMajor) : MathMajor := by
@@ -1388,7 +1388,7 @@ example (Rainy PoolClosed : Prop) (h1 : Rainy → PoolClosed) (h2 : Rainy) : Poo
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (Rainy PoolClosed : Prop) (h1 : Rainy → PoolClosed) (h2 : Rainy) : PoolClosed := by
@@ -1407,7 +1407,7 @@ example (Swim StayLong Sunburn : Prop) (h1 : Swim → StayLong) (h2 : StayLong �
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (Swim StayLong Sunburn : Prop) (h1 : Swim → StayLong) (h2 : StayLong → Sunburn) : Swim → Sunburn := by
@@ -1447,7 +1447,7 @@ example (Sunny Colder Swimming Canoe HomeBySunset : Prop)
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (Sunny Colder Swimming Canoe HomeBySunset : Prop)
@@ -1483,7 +1483,7 @@ example (Email Finish Sleep Refreshed : Prop)
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (Email Finish Sleep Refreshed : Prop)
@@ -1509,7 +1509,7 @@ example (P Q R : Prop) (h1 : P ∨ Q) (h2 : ¬P ∨ R) : Q ∨ R := by
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (P Q R : Prop) (h1 : P ∨ Q) (h2 : ¬P ∨ R) : Q ∨ R := by
@@ -1570,16 +1570,6 @@ example (P Q R : Prop) (h1 : P ∨ Q) (h2 : ¬P ∨ R) : Q ∨ R := by
 
 ---
 
-## 4-4.18 다음 장 예고
-
-제4-5편에서는 다음을 다룰 예정이다:
-
-1. **수학적 귀납법**(Mathematical Induction)
-2. **강한 귀납법**(Strong Induction)
-3. **구조적 귀납법**(Structural Induction)
-4. **재귀적 정의**(Recursive Definitions)
-
----
 
 ## 부록: 교재 표 1 완전 Lean4 구현
 
@@ -1621,11 +1611,4 @@ theorem resolution (P Q R : Prop) : (P ∨ Q) ∧ (¬P ∨ R) → (Q ∨ R) :=
 
 ---
 
-**수고하셨습니다!** 🎉
 
-이 장을 완료하면 다음을 할 수 있다:
-- 정당한 논증이 무엇인지 이해하고 판별할 수 있다
-- 8가지 핵심 추론 규칙을 Lean4로 구현할 수 있다
-- 직접 증명, 대우에 의한 증명, 모순에 의한 증명을 수행할 수 있다
-- 조건문(→)과 쌍조건문(↔)의 차이를 명확히 이해한다
-- 한정기호를 사용한 추론을 Lean4로 수행할 수 있다
