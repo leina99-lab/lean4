@@ -8,7 +8,6 @@
 
 ## 📖 이 연습문제에서 사용하는 전략(tactic) — Part 1~3 범위만
 
-이 문제집은 **Part 1 ~ Part 3**에서 배운 내용만 사용한다. 아래 표가 전부이다.
 
 | 전략(tactic) | 배운 곳 | 하는 일 |
 |-------------|---------|--------|
@@ -32,25 +31,10 @@
 | `rintro ⟨a, b⟩` | Part 3 | 도입 + 분해 **동시에** |
 | `.mp` / `.mpr` | Part 3 | `↔`의 정방향/역방향 **추출** |
 
-> ⚠️ `push_neg`, `contrapose`, `by_contra`, `exfalso`, `contradiction`은 Part 3 **후반**에 나오지만, 이 문제집에서는 **사용하지 않는다**. 위 표의 전략만으로 모든 문제를 풀 수 있다.
+> `push_neg`, `contrapose`, `by_contra`, `exfalso`, `contradiction`은 Part 3 **후반**에 나오지만, 이 문제집에서는 **사용하지 않는다**. 위 표의 전략만으로 모든 문제를 풀 수 있다.
 
 ---
 
-## 🔑 `rw`가 하는 일 — 복습
-
-> **"A = B라는 사실을 알고 있으면, 목표에서 A를 B로 바꿀 수 있다."**
-
-```
-변경 전:  [a * b] * c = b * (a * c)
-              ↓ rw [mul_comm a b]
-변경 후:  [b * a] * c = b * (a * c)
-```
-
-`← `를 붙이면 반대 방향:  `rw [← mul_comm a b]`는 `b * a`를 `a * b`로 바꾼다.
-
----
-
----
 
 # 🅰️ 괄호 채우기 연습문제 (20문제)
 
@@ -551,7 +535,7 @@ example (hyp : c = b * a - d) (hyp' : d = a * b) : c = 0 := by
 ```
 
 <details>
-<summary>💡 힌트</summary>
+<summary> 힌트</summary>
 `hyp'`를 `hyp`에 대입 → `mul_comm` 적용 → `sub_self` 적용 → `exact hyp`
 </details>
 
@@ -617,7 +601,7 @@ example : P → Q → P := by
 ```
 
 <details>
-<summary>💡 힌트</summary>
+<summary> 힌트</summary>
 `intro`를 두 번 쓴다. 첫 번째로 P의 증거를, 두 번째로 Q의 증거를 도입한다. Q는 안 쓰고 P만 반환하면 된다.
 </details>
 
@@ -705,7 +689,7 @@ example (h : P ∧ Q) : Q ∧ P := by
 ```
 
 <details>
-<summary>💡 힌트</summary>
+<summary> 힌트</summary>
 `rcases`로 분해한 뒤, `constructor`로 순서를 바꿔서 다시 합친다.
 </details>
 
@@ -791,7 +775,7 @@ example (h : ∃ n, P n ∧ n = 3) : ∃ n, P n := by
 ```
 
 <details>
-<summary>💡 힌트</summary>
+<summary> 힌트</summary>
 `rcases h with ⟨n, hpn, hn⟩`로 분해하면 `n`, `hpn : P n`, `hn : n = 3`을 얻는다. 그 n을 `use`한다.
 </details>
 
@@ -860,7 +844,7 @@ example (h : P ↔ Q) : Q ↔ P := by
 ```
 
 <details>
-<summary>💡 힌트</summary>
+<summary> 힌트</summary>
 `constructor`로 나누고, `.mp`와 `.mpr`을 적절히 쓴다.
 </details>
 
@@ -887,7 +871,7 @@ example (hpq : P → Q) (hqr : Q → R) : P → R := by
 ```
 
 <details>
-<summary>💡 힌트</summary>
+<summary> 힌트</summary>
 `intro hp`로 P의 증명을 도입 → `hpq hp`로 Q의 증명을 얻고 → `hqr`에 넣어 R의 증명을 얻는다.
 </details>
 
@@ -917,7 +901,7 @@ example : (∃ n : ℕ, n > 0) ∧ (2 + 3 = 5) := by
 ```
 
 <details>
-<summary>💡 힌트</summary>
+<summary> 힌트</summary>
 `constructor`로 `∧`를 나누고, 왼쪽은 `use`로 존재 양화사를 해결, 오른쪽은 `norm_num`으로 계산.
 </details>
 
@@ -958,4 +942,4 @@ example : (∃ n : ℕ, n > 0) ∧ (2 + 3 = 5) := by
 
 ---
 
-> 🎯 **이 40문제를 다 풀 수 있다면**, Part 1~3에서 배운 명제와 증명의 핵심을 **완전히 체득**한 것이다. 다음 단계(Part 4: 집합과 함수)로 넘어갈 준비가 되었다!
+>  **이 40문제를 다 풀 수 있다면**, Part 1~3에서 배운 명제와 증명의 핵심을 **완전히 체득**한 것이다. 다음 단계(Part 4: 집합과 함수)로 넘어갈 준비가 되었다!
