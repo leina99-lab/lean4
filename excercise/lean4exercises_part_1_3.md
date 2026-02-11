@@ -1,4 +1,4 @@
-# 📝 Lean 4 연습문제 모음 — Part 1 ~ 3 범위 · 명제와 증명 완전 정복
+# Lean 4 연습문제 모음 — Part 1 ~ 3 범위 · 명제와 증명 완전 정복
 
 > **lean4_tutorial_part1.md ~ part3.md 범위 내 · 명제**(Prop) **중심**
 >
@@ -6,8 +6,9 @@
 
 ---
 
-##  이 연습문제에서 사용하는 전략(tactic) — Part 1~3 범위만
+## 이 연습문제에서 사용하는 전략(tactic) — Part 1~3 범위만
 
+이 문제집은 **Part 1 ~ Part 3**에서 배운 내용만 사용한다. 아래 표가 전부이다.
 
 | 전략(tactic) | 배운 곳 | 하는 일 |
 |-------------|---------|--------|
@@ -35,8 +36,23 @@
 
 ---
 
+## `rw`가 하는 일 — 복습
 
-# 🅰️ 괄호 채우기 연습문제 (20문제)
+> **"A = B라는 사실을 알고 있으면, 목표에서 A를 B로 바꿀 수 있다."**
+
+```
+변경 전:  [a * b] * c = b * (a * c)
+              ↓ rw [mul_comm a b]
+변경 후:  [b * a] * c = b * (a * c)
+```
+
+`← `를 붙이면 반대 방향:  `rw [← mul_comm a b]`는 `b * a`를 `a * b`로 바꾼다.
+
+---
+
+---
+
+# A. 괄호 채우기 연습문제 (20문제)
 
 > `[????]` 부분을 올바른 내용으로 채워 넣으시오.
 
@@ -459,7 +475,7 @@ example : (3 : ℕ) + 7 = 10 := by
 
 ---
 
-# 🅱️ sorry 채우기 연습문제 (20문제)
+# B. sorry 채우기 연습문제 (20문제)
 
 > `sorry`를 지우고 완전한 증명을 작성하시오.
 > 위 괄호 문제를 sorry 형식으로 변환한 것 + 새로운 문제가 포함되어 있다.
@@ -535,7 +551,7 @@ example (hyp : c = b * a - d) (hyp' : d = a * b) : c = 0 := by
 ```
 
 <details>
-<summary> 힌트</summary>
+<summary>힌트</summary>
 `hyp'`를 `hyp`에 대입 → `mul_comm` 적용 → `sub_self` 적용 → `exact hyp`
 </details>
 
@@ -601,7 +617,7 @@ example : P → Q → P := by
 ```
 
 <details>
-<summary> 힌트</summary>
+<summary>힌트</summary>
 `intro`를 두 번 쓴다. 첫 번째로 P의 증거를, 두 번째로 Q의 증거를 도입한다. Q는 안 쓰고 P만 반환하면 된다.
 </details>
 
@@ -689,7 +705,7 @@ example (h : P ∧ Q) : Q ∧ P := by
 ```
 
 <details>
-<summary> 힌트</summary>
+<summary>힌트</summary>
 `rcases`로 분해한 뒤, `constructor`로 순서를 바꿔서 다시 합친다.
 </details>
 
@@ -775,7 +791,7 @@ example (h : ∃ n, P n ∧ n = 3) : ∃ n, P n := by
 ```
 
 <details>
-<summary> 힌트</summary>
+<summary>힌트</summary>
 `rcases h with ⟨n, hpn, hn⟩`로 분해하면 `n`, `hpn : P n`, `hn : n = 3`을 얻는다. 그 n을 `use`한다.
 </details>
 
@@ -844,7 +860,7 @@ example (h : P ↔ Q) : Q ↔ P := by
 ```
 
 <details>
-<summary> 힌트</summary>
+<summary>힌트</summary>
 `constructor`로 나누고, `.mp`와 `.mpr`을 적절히 쓴다.
 </details>
 
@@ -871,7 +887,7 @@ example (hpq : P → Q) (hqr : Q → R) : P → R := by
 ```
 
 <details>
-<summary> 힌트</summary>
+<summary>힌트</summary>
 `intro hp`로 P의 증명을 도입 → `hpq hp`로 Q의 증명을 얻고 → `hqr`에 넣어 R의 증명을 얻는다.
 </details>
 
@@ -901,7 +917,7 @@ example : (∃ n : ℕ, n > 0) ∧ (2 + 3 = 5) := by
 ```
 
 <details>
-<summary> 힌트</summary>
+<summary>힌트</summary>
 `constructor`로 `∧`를 나누고, 왼쪽은 `use`로 존재 양화사를 해결, 오른쪽은 `norm_num`으로 계산.
 </details>
 
@@ -919,7 +935,7 @@ example : (∃ n : ℕ, n > 0) ∧ (2 + 3 = 5) := by
 
 ---
 
-##  문제 대응표: "이 괄호 문제를 sorry로 풀어보세요"
+## 문제 대응표: "이 괄호 문제를 sorry로 풀어보세요"
 
 괄호 문제를 풀었다면, 같은 명제를 sorry 형식으로도 풀어보자!
 
@@ -942,4 +958,4 @@ example : (∃ n : ℕ, n > 0) ∧ (2 + 3 = 5) := by
 
 ---
 
->  **이 40문제를 다 풀 수 있다면**, Part 1~3에서 배운 명제와 증명의 핵심을 **완전히 체득**한 것이다. 다음 단계(Part 4: 집합과 함수)로 넘어갈 준비가 되었다!
+> **이 40문제를 다 풀 수 있다면**, Part 1~3에서 배운 명제와 증명의 핵심을 **완전히 체득**한 것이다. 다음 단계(Part 4: 집합과 함수)로 넘어갈 준비가 되었다!
