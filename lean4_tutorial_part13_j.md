@@ -1,4 +1,4 @@
-# Part 13-J: 평면 그래프 — 교차 없이 평면에 그릴 수 있을까?
+# Lean4 완전 정복 가이드 —  Part 13-J: 평면 그래프 — 교차 없이 평면에 그릴 수 있을까?
 
 > **Rosen 이산수학 8판 · Section 10.7 기반**
 > 『Mathematics in Lean』 + Lean 4 공식화
