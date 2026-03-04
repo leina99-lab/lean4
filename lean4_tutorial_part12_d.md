@@ -1,4 +1,4 @@
-# Part 12-D: 관계의 표현 — 행렬과 방향성 그래프 (Representing Relations)
+# Lean4 완전 정복 가이드 —  Part 12-D: 관계의 표현 — 행렬과 방향성 그래프 (Representing Relations)
 
 > **Rosen 이산수학 8판 · Section 9.3 기반**
 > 『Mathematics in Lean』 + Lean 4 공식화
