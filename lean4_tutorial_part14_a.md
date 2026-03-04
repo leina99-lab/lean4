@@ -1,4 +1,4 @@
-# Part 14-A: 부울 대수 기초 — 부울 연산, 부울 함수, 부울 식
+# Lean4 완전 정복 가이드 —  Part 14-A: 부울 대수 기초 — 부울 연산, 부울 함수, 부울 식
 
 > **Rosen 이산수학 8판 · Chapter 12 (Section 12.1) 기반**
 > **『Mathematics in Lean』 + Lean 4 공식화**
