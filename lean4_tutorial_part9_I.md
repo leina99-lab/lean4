@@ -1,4 +1,4 @@
-# 📘 Lean 4 튜토리얼 — Part 9-I: 정리의 세계로 — lemma, theorem, →, ↔, 그리고 치환
+# Lean4 완전 정복 가이드 —  Part 9-I: 정리의 세계로 — lemma, theorem, →, ↔, 그리고 치환
 
 > **『Mathematics in Lean』 Chapter 2~3 기반 · Rosen 이산수학과 연결**
 > 이전 파트(Part 9-A~H)에서 이산수학의 계수(counting) 문제를 Lean 4로 다루었다.
@@ -8,7 +8,7 @@
 
 ---
 
-## 🎯 이 파트에서 배울 것
+##  이 파트에서 배울 것
 
 | 순서 | 주제 | 핵심 질문 |
 |------|------|----------|
