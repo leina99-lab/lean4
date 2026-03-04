@@ -1,4 +1,4 @@
-# 📘 Lean4 이산수학 튜토리얼 Part 9-B: 뺄셈 법칙, 나눗셈 법칙, 트리 도표
+# Lean4 완전 정복 가이드 —  Part 9-B: 뺄셈 법칙, 나눗셈 법칙, 트리 도표
 
 > **Rosen 이산수학 8판 6.1절 (후반부) 기반**
 > **『Mathematics in Lean』 Chapter 6: Discrete Mathematics 참고**
