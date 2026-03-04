@@ -16,7 +16,7 @@
 | **멱급수의 덧셈 · 곱셈** | 계수끼리의 연산 규칙 |
 | **확장된 이항 계수**(extended binomial coefficient) | 실수 `u`에 대해 `C(u, k)` 정의 |
 
-> 💡 **왜 생성 함수를 배울까?**  
+>  **왜 생성 함수를 배울까?**  
 > 점화 관계를 "대수적으로" 풀 수 있게 해주는 강력한 도구이다. 복잡한 계수 문제를 다항식의 곱으로 변환하면, 컴퓨터 대수 시스템이 자동으로 풀어줄 수 있다. Lean 4에서는 유한 다항식(`Polynomial`)과 형식적 멱급수(`PowerSeries`)를 모두 지원한다.
 
 ---
@@ -41,7 +41,7 @@ $$G(x) = a_0 + a_1 x + a_2 x^2 + a_3 x^3 + \cdots = \sum_{k=0}^{\infty} a_k x^k$
 
 여기서 중요한 점은, 우리는 `x`에 실제 숫자를 대입하는 것이 아니라, **형식적**(formal)으로 다룬다는 것이다. 즉, 수렴 여부는 신경 쓰지 않는다!
 
-> 🎒 **비유**: 생성 함수는 수열의 "DNA"와 같다. DNA에 생물의 모든 정보가 담겨 있듯이, 생성 함수 하나에 수열의 모든 정보가 담겨 있다.
+>  **비유**: 생성 함수는 수열의 "DNA"와 같다. DNA에 생물의 모든 정보가 담겨 있듯이, 생성 함수 하나에 수열의 모든 정보가 담겨 있다.
 
 ### 1.2 간단한 예시
 
@@ -101,7 +101,7 @@ def partialSum (a : ℕ → ℕ) (n : ℕ) : ℕ :=
 
 `f(x) · g(x)`에서 `xᵏ`의 계수를 구하려면, `f(x)`에서 `xʲ`항을 고르고 `g(x)`에서 `xᵏ⁻ʲ`항을 골라서 곱한 것을 모두 더한다. 즉, 지수의 합이 `k`가 되는 모든 조합을 고려한다.
 
-> 🎒 **비유**: 두 주사위를 던질 때, 합이 `k`가 되는 경우의 수를 구하는 것과 같다!
+>  **비유**: 두 주사위를 던질 때, 합이 `k`가 되는 경우의 수를 구하는 것과 같다!
 
 #### Lean 4 구현
 
@@ -332,7 +332,7 @@ $$(1-x)^{-n} = \sum_{k=0}^{\infty} C(n+k-1, k) x^k$$
 
 이것이 바로 **표 1**에서 `1/(1-x)ⁿ`의 계수가 `C(n+k-1, k)`인 이유이다!
 
-> 💡 **핵심 포인트**: `1/(1-x)ⁿ`의 `xᵏ` 계수가 `C(n+k-1, k)`라는 사실은, **중복을 허용한 조합**(combination with repetition)의 수와 같다. 이것은 6장에서 배운 중복조합 공식과 정확히 일치한다!
+>  **핵심 포인트**: `1/(1-x)ⁿ`의 `xᵏ` 계수가 `C(n+k-1, k)`라는 사실은, **중복을 허용한 조합**(combination with repetition)의 수와 같다. 이것은 6장에서 배운 중복조합 공식과 정확히 일치한다!
 
 ```lean
 -- 1/(1-x)^n 의 k번째 계수 = C(n+k-1, k) 검증
@@ -579,7 +579,7 @@ example : seq_pow4 = (List.range 5).map (fun k => 4 ^ k) := by ⟨ native_decide
 > **질문**: 이 수열의 생성 함수를 닫힌 형태로 쓰면?
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 생성 함수는 `G(x) = 1 + 4x + 16x² + 64x³ + 256x⁴`이다.
 
@@ -618,7 +618,7 @@ def seqB : ℕ → ℕ := fun n => if n < 3 then 1 else 0
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```
 c₀ = 1
@@ -650,7 +650,7 @@ c₄ = 3
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```
 C(-3, 4) = (-3)(-4)(-5)(-6) / 4! = 360 / 24 = 15
@@ -720,7 +720,7 @@ theorem recSeq_7_explicit (n : ℕ) : recSeq_7 n = 5 * 7 ^ n := by
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 theorem recSeq_7_explicit (n : ℕ) : recSeq_7 n = 5 * 7 ^ n := by
@@ -753,7 +753,7 @@ def balloon_product : List ℕ :=
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 def balloon_product : List ℕ :=
@@ -784,7 +784,7 @@ theorem vandermonde_3 :
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 theorem vandermonde_3 :
