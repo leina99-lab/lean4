@@ -1,4 +1,4 @@
-# Part 11-C: 생성 함수 기초 (Generating Functions – Introduction)
+# Lean4 완전 정복 가이드 —  Part 11-C: 생성 함수 기초 (Generating Functions – Introduction)
 
 > **Rosen 『이산수학』 8판 8.4절** 기반  
 > **선수 지식**: Part 11-A (점화 관계 기초), Part 11-B (선형 점화 관계)  
