@@ -1,4 +1,4 @@
-# Lean 4 튜토리얼 — Part 9-E: 이항 정리와 파스칼 삼각형 (Binomial Theorem & Pascal's Triangle)
+# Lean4 완전 정복 가이드  — Part 9-E: 이항 정리와 파스칼 삼각형 (Binomial Theorem & Pascal's Triangle)
 
 > **시리즈 위치**: Rosen 이산수학 8판 §6.4  
 > **선수 지식**: Part 9-D (순열과 조합, Nat.choose)  
