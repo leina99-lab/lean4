@@ -1,4 +1,4 @@
-# Part 11-B: 선형 점화 관계 풀기 (Solving Linear Recurrence Relations)
+# Lean4 완전 정복 가이드 —  Part 11-B: 선형 점화 관계 풀기 (Solving Linear Recurrence Relations)
 
 > **Rosen 이산수학 8판 · Section 8.1 (동적 프로그래밍) + 8.2 기반**
 > 『Mathematics in Lean』 + Lean 4 공식화
