@@ -1,4 +1,4 @@
-# Part 12-C: n항 관계와 응용 (n-ary Relations and Applications)
+# Lean4 완전 정복 가이드 —  Part 12-C: n항 관계와 응용 (n-ary Relations and Applications)
 
 > **Rosen 이산수학 8판 · Section 9.2 기반**
 > 『Mathematics in Lean』 + Lean 4 공식화
