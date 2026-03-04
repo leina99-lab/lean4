@@ -1,11 +1,11 @@
-# 📘 Lean 4 튜토리얼 — Part 10-A: 이산확률의 도입
+# Lean4 완전 정복 가이드 —  Part 10-A: 이산확률의 도입
 
 > **Rosen 이산수학 8판 §7.1 기반 · Mathematics in Lean 참조**
 > 이전 파트(Part 9 시리즈)에서 조합론을 배웠다. 이제 그 위에 **확률**(probability)이라는 새 층을 쌓는다.
 
 ---
 
-## 🎯 이 파트에서 배울 것
+##  이 파트에서 배울 것
 
 1. **확률**(probability)이란 무엇인가 — 역사와 직관
 2. **표본공간**(sample space), **사건**(event), **확률**(probability)의 형식적 정의
