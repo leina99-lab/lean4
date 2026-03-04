@@ -1,4 +1,4 @@
-# Part 14-C: 논리 게이트와 회로 설계 — 인버터, OR/AND 게이트, 가산기
+# Lean4 완전 정복 가이드 —  Part 14-C: 논리 게이트와 회로 설계 — 인버터, OR/AND 게이트, 가산기
 
 > **Rosen 이산수학 8판 · Section 12.3 기반**
 > **『Mathematics in Lean』 + Lean 4 공식화**
