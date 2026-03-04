@@ -1,4 +1,4 @@
-# Part 12-F: 동치관계와 동치류 (Equivalence Relations and Equivalence Classes)
+# Lean4 완전 정복 가이드 —  Part 12-F: 동치관계와 동치류 (Equivalence Relations and Equivalence Classes)
 
 > **Rosen 이산수학 8판 · Section 9.5 기반**
 > 『Mathematics in Lean』 + Lean 4 공식화
