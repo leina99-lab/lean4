@@ -1,4 +1,4 @@
-# 📘 Lean4 이산수학 튜토리얼 Part 9-A: 계수의 기본 원리 — 곱셈 법칙과 덧셈 법칙
+# Lean4 완전 정복 가이드 —  Part 9-A: 계수의 기본 원리 : 곱셈 법칙과 덧셈 법칙
 
 > **Rosen 이산수학 8판 6.1절 기반**
 > **『Mathematics in Lean』 Chapter 6: Discrete Mathematics 참고**
