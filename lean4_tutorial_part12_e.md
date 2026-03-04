@@ -1,4 +1,4 @@
-# Part 12-E: 관계의 폐쇄 (Closure of Relations)
+# Lean4 완전 정복 가이드 —  Part 12-E: 관계의 폐쇄 (Closure of Relations)
 
 > **Rosen 이산수학 8판 · Section 9.4 기반**
 > 『Mathematics in Lean』 + Lean 4 공식화
