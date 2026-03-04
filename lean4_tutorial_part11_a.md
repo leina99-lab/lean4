@@ -1,4 +1,4 @@
-# Part 11-A: 점화 관계의 응용 (Applications of Recurrence Relations) — 기초편
+# Lean4 완전 정복 가이드 —  Part 11-A: 점화 관계의 응용 (Applications of Recurrence Relations) — 기초편
 
 > **Rosen 이산수학 8판 · Section 8.1 기반**
 > 『Mathematics in Lean』 + Lean 4 공식화
