@@ -1,4 +1,4 @@
-# Part 13-A: 그래프와 그래프 모델 (Graphs and Graph Models)
+# Lean4 완전 정복 가이드 —  Part 13-A: 그래프와 그래프 모델 (Graphs and Graph Models)
 
 > **Rosen 이산수학 8판 · Chapter 10 · Section 10.1 기반**
 > 『Mathematics in Lean』 + Lean 4 공식화
