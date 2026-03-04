@@ -1,4 +1,4 @@
-# Part 14-D: 회로의 최소화 — 카르노맵과 퀸-맥클러스키 방법
+# Lean4 완전 정복 가이드 —  Part 14-D: 회로의 최소화 — 카르노맵과 퀸-맥클러스키 방법
 
 > **Rosen 이산수학 8판 · Section 12.4 기반**
 > **『Mathematics in Lean』 + Lean 4 공식화**
