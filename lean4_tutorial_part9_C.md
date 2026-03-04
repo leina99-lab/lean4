@@ -1,4 +1,4 @@
-# 📘 Lean4 이산수학 튜토리얼 Part 9-C: 비둘기집 원리
+# Lean4 완전 정복 가이드 —  Part 9-C: 비둘기집 원리
 
 > **Rosen 이산수학 8판 6.2절 기반**
 > **『Mathematics in Lean』 Chapter 6: Discrete Mathematics 참고**
