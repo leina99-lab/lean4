@@ -1,4 +1,4 @@
-# Part 13-D: 이분 그래프, 매칭, 그래프 연산 (Bipartite Graphs, Matching, Graph Operations)
+# Lean4 완전 정복 가이드 —  Part 13-D: 이분 그래프, 매칭, 그래프 연산 (Bipartite Graphs, Matching, Graph Operations)
 
 > **Rosen 이산수학 8판 · Section 10.2 기반**
 > 『Mathematics in Lean』 + Lean 4 공식화
