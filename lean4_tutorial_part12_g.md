@@ -1,4 +1,4 @@
-# Part 12-G: 부분순서 — 기초편 (Partial Orders — Basics)
+# Lean4 완전 정복 가이드 —  Part 12-G: 부분순서 — 기초편 (Partial Orders — Basics)
 
 > **Rosen 이산수학 8판 · Section 9.6 기반**
 > 『Mathematics in Lean』 + Lean 4 공식화
