@@ -1,4 +1,4 @@
-# Lean 4 튜토리얼 — Part 9-F: 일반화된 순열과 조합 (Generalized Permutations and Combinations)
+# Lean4 완전 정복 가이드 —  Part 9-F: 일반화된 순열과 조합 (Generalized Permutations and Combinations)
 
 > **시리즈 위치**: Rosen 이산수학 8판 §6.5  
 > **선수 지식**: Part 9-D (순열과 조합), Part 9-E (이항 정리)  
