@@ -1,4 +1,4 @@
-# Part 13-B: 그래프 용어와 특별한 그래프 (Graph Terminology and Special Graphs)
+# Lean4 완전 정복 가이드 —  Part 13-B: 그래프 용어와 특별한 그래프 (Graph Terminology and Special Graphs)
 
 > **Rosen 이산수학 8판 · Section 10.1 연습문제 + Section 10.2 서론 기반**
 > 『Mathematics in Lean』 + Lean 4 공식화
