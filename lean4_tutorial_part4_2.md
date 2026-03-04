@@ -33,24 +33,24 @@
 **항진명제**(tautology)는 명제 변수가 어떤 진리값을 가지더라도 **항상 참**인 복합명제이다.
 
 **예시:**
-\`\`\`
+```
 p ∨ ¬p  (배중률)
 → p가 참이면: T ∨ F = T
 → p가 거짓이면: F ∨ T = T
 → 항상 참! ∴ 항진명제
-\`\`\`
+```
 
 ### 모순(Contradiction)이란?
 
 **모순**(contradiction)은 명제 변수가 어떤 진리값을 가지더라도 **항상 거짓**인 복합명제이다.
 
 **예시:**
-\`\`\`
+```
 p ∧ ¬p  (모순)
 → p가 참이면: T ∧ F = F
 → p가 거짓이면: F ∧ T = F
 → 항상 거짓! ∴ 모순
-\`\`\`
+```
 
 ### 논리적 동치(Logical Equivalence)란?
 
@@ -66,7 +66,7 @@ p ∧ ¬p  (모순)
 
 Lean4에서 **논리적 동치**는 \`↔\` (if and only if, iff)로 표현한다.
 
-\`\`\`lean
+```lean
 -- p ↔ q 는 "p이면 q이고, q이면 p이다"와 같다
 -- 즉, (p → q) ∧ (q → p)
 
@@ -78,11 +78,11 @@ example (p q : Prop) : (p ↔ q) ↔ ((p → q) ∧ (q → p)) := by
     · exact h.mpr     -- p ↔ q에서 q → p 추출
   · intro ⟨hpq, hqp⟩
     exact ⟨hpq, hqp⟩  -- (p → q) ∧ (q → p)로 p ↔ q 구성
-\`\`\`
+```
 
 ### ↔의 두 가지 방향
 
-\`\`\`lean
+```lean
 -- h : p ↔ q 일 때
 -- h.mp  : p → q  (mp = modus ponens, 정방향)
 -- h.mpr : q → p  (mpr = modus ponens reverse, 역방향)
@@ -92,7 +92,7 @@ example (p q : Prop) (h : p ↔ q) (hp : p) : q := by
 
 example (p q : Prop) (h : p ↔ q) (hq : q) : p := by
   exact h.mpr hq  -- h.mpr : q → p, hq : q, 따라서 p
-\`\`\`
+```
 
 ---
 
@@ -102,12 +102,12 @@ example (p q : Prop) (h : p ↔ q) (hq : q) : p := by
 
 ### 항등 법칙(Identity Laws)
 
-\`\`\`
+```
 p ∧ True ≡ p
 p ∨ False ≡ p
-\`\`\`
+```
 
-\`\`\`lean
+```lean
 -- 항등 법칙 1: p ∧ True ↔ p
 theorem identity_and (p : Prop) : (p ∧ True) ↔ p := by
   constructor
@@ -125,16 +125,16 @@ theorem identity_or (p : Prop) : (p ∨ False) ↔ p := by
     | inr hf => exact False.elim hf
   · intro hp
     exact Or.inl hp
-\`\`\`
+```
 
 ### 지배 법칙(Domination Laws)
 
-\`\`\`
+```
 p ∨ True ≡ True
 p ∧ False ≡ False
-\`\`\`
+```
 
-\`\`\`lean
+```lean
 -- 지배 법칙 1: p ∨ True ↔ True
 theorem domination_or (p : Prop) : (p ∨ True) ↔ True := by
   constructor
@@ -150,16 +150,16 @@ theorem domination_and (p : Prop) : (p ∧ False) ↔ False := by
     exact hf
   · intro hf
     exact False.elim hf
-\`\`\`
+```
 
 ### 등멱 법칙(Idempotent Laws)
 
-\`\`\`
+```
 p ∨ p ≡ p
 p ∧ p ≡ p
-\`\`\`
+```
 
-\`\`\`lean
+```lean
 -- 등멱 법칙 1: p ∨ p ↔ p
 theorem idempotent_or (p : Prop) : (p ∨ p) ↔ p := by
   constructor
@@ -177,15 +177,15 @@ theorem idempotent_and (p : Prop) : (p ∧ p) ↔ p := by
     exact hp
   · intro hp
     exact ⟨hp, hp⟩
-\`\`\`
+```
 
 ### 이중 부정 법칙(Double Negation)
 
-\`\`\`
+```
 ¬(¬p) ≡ p
-\`\`\`
+```
 
-\`\`\`lean
+```lean
 -- 이중 부정 법칙: ¬¬p ↔ p (고전 논리 필요)
 theorem double_negation (p : Prop) : ¬¬p ↔ p := by
   constructor
@@ -194,16 +194,16 @@ theorem double_negation (p : Prop) : ¬¬p ↔ p := by
     exact hnnp hnp   -- hnnp : ¬¬p, hnp : ¬p → 모순
   · intro hp hnp
     exact hnp hp     -- hp : p, hnp : ¬p → 모순
-\`\`\`
+```
 
 ### 교환 법칙(Commutative Laws)
 
-\`\`\`
+```
 p ∨ q ≡ q ∨ p
 p ∧ q ≡ q ∧ p
-\`\`\`
+```
 
-\`\`\`lean
+```lean
 -- 교환 법칙 1: p ∨ q ↔ q ∨ p
 theorem comm_or (p q : Prop) : (p ∨ q) ↔ (q ∨ p) := by
   constructor
@@ -223,16 +223,16 @@ theorem comm_and (p q : Prop) : (p ∧ q) ↔ (q ∧ p) := by
     exact ⟨hq, hp⟩
   · intro ⟨hq, hp⟩
     exact ⟨hp, hq⟩
-\`\`\`
+```
 
 ### 결합 법칙(Associative Laws)
 
-\`\`\`
+```
 (p ∨ q) ∨ r ≡ p ∨ (q ∨ r)
 (p ∧ q) ∧ r ≡ p ∧ (q ∧ r)
-\`\`\`
+```
 
-\`\`\`lean
+```lean
 -- 결합 법칙 1: (p ∨ q) ∨ r ↔ p ∨ (q ∨ r)
 theorem assoc_or (p q r : Prop) : ((p ∨ q) ∨ r) ↔ (p ∨ (q ∨ r)) := by
   constructor
@@ -258,20 +258,20 @@ theorem assoc_and (p q r : Prop) : ((p ∧ q) ∧ r) ↔ (p ∧ (q ∧ r)) := by
     exact ⟨hp, hq, hr⟩
   · intro ⟨hp, hq, hr⟩
     exact ⟨⟨hp, hq⟩, hr⟩
-\`\`\`
+```
 
 ---
 
 ## 4-2.5 분배 법칙(Distributive Laws)
 
-\`\`\`
+```
 p ∨ (q ∧ r) ≡ (p ∨ q) ∧ (p ∨ r)
 p ∧ (q ∨ r) ≡ (p ∧ q) ∨ (p ∧ r)
-\`\`\`
+```
 
 ### 분배 법칙 1: ∨가 ∧에 분배
 
-\`\`\`lean
+```lean
 -- p ∨ (q ∧ r) ↔ (p ∨ q) ∧ (p ∨ r)
 theorem dist_or_and (p q r : Prop) : (p ∨ (q ∧ r)) ↔ ((p ∨ q) ∧ (p ∨ r)) := by
   constructor
@@ -295,11 +295,11 @@ theorem dist_or_and (p q r : Prop) : (p ∨ (q ∧ r)) ↔ ((p ∨ q) ∧ (p ∨
       cases hpr with
       | inl hp => exact Or.inl hp
       | inr hr => exact Or.inr ⟨hq, hr⟩
-\`\`\`
+```
 
 ### 분배 법칙 2: ∧가 ∨에 분배
 
-\`\`\`lean
+```lean
 -- p ∧ (q ∨ r) ↔ (p ∧ q) ∨ (p ∧ r)
 theorem dist_and_or (p q r : Prop) : (p ∧ (q ∨ r)) ↔ ((p ∧ q) ∨ (p ∧ r)) := by
   constructor
@@ -315,7 +315,7 @@ theorem dist_and_or (p q r : Prop) : (p ∧ (q ∨ r)) ↔ ((p ∧ q) ∨ (p ∧
     | inr hpr =>
       obtain ⟨hp, hr⟩ := hpr
       exact ⟨hp, Or.inr hr⟩
-\`\`\`
+```
 
 ---
 
@@ -323,10 +323,10 @@ theorem dist_and_or (p q r : Prop) : (p ∧ (q ∨ r)) ↔ ((p ∧ q) ∨ (p ∧
 
 **드 모르간 법칙**은 논리학에서 가장 중요한 동치 중 하나이다.
 
-\`\`\`
+```
 ¬(p ∧ q) ≡ ¬p ∨ ¬q  (제1 드 모르간 법칙)
 ¬(p ∨ q) ≡ ¬p ∧ ¬q  (제2 드 모르간 법칙)
-\`\`\`
+```
 
 **직관적 이해:**
 - "둘 다 참이 **아니다**" = "적어도 하나는 거짓이다"
@@ -334,7 +334,7 @@ theorem dist_and_or (p q r : Prop) : (p ∧ (q ∨ r)) ↔ ((p ∧ q) ∨ (p ∧
 
 ### 제1 드 모르간 법칙
 
-\`\`\`lean
+```lean
 -- ¬(p ∧ q) ↔ ¬p ∨ ¬q
 theorem de_morgan_and (p q : Prop) : ¬(p ∧ q) ↔ (¬p ∨ ¬q) := by
   constructor
@@ -351,11 +351,11 @@ theorem de_morgan_and (p q : Prop) : ¬(p ∧ q) ↔ (¬p ∨ ¬q) := by
     cases h with
     | inl hnp => exact hnp hp
     | inr hnq => exact hnq hq
-\`\`\`
+```
 
 ### 제2 드 모르간 법칙
 
-\`\`\`lean
+```lean
 -- ¬(p ∨ q) ↔ ¬p ∧ ¬q
 theorem de_morgan_or (p q : Prop) : ¬(p ∨ q) ↔ (¬p ∧ ¬q) := by
   constructor
@@ -369,18 +369,18 @@ theorem de_morgan_or (p q : Prop) : ¬(p ∨ q) ↔ (¬p ∧ ¬q) := by
     cases hpq with
     | inl hp => exact hnp hp
     | inr hq => exact hnq hq
-\`\`\`
+```
 
 ---
 
 ## 4-2.7 흡수 법칙(Absorption Laws)
 
-\`\`\`
+```
 p ∨ (p ∧ q) ≡ p
 p ∧ (p ∨ q) ≡ p
-\`\`\`
+```
 
-\`\`\`lean
+```lean
 -- 흡수 법칙 1: p ∨ (p ∧ q) ↔ p
 theorem absorption_or (p q : Prop) : (p ∨ (p ∧ q)) ↔ p := by
   constructor
@@ -398,18 +398,18 @@ theorem absorption_and (p q : Prop) : (p ∧ (p ∨ q)) ↔ p := by
     exact hp
   · intro hp
     exact ⟨hp, Or.inl hp⟩
-\`\`\`
+```
 
 ---
 
 ## 4-2.8 부정 법칙(Negation Laws)
 
-\`\`\`
+```
 p ∨ ¬p ≡ True   (배중률, Excluded Middle)
 p ∧ ¬p ≡ False  (모순)
-\`\`\`
+```
 
-\`\`\`lean
+```lean
 -- 배중률: p ∨ ¬p ↔ True
 theorem excluded_middle_equiv (p : Prop) : (p ∨ ¬p) ↔ True := by
   constructor
@@ -425,7 +425,7 @@ theorem contradiction_equiv (p : Prop) : (p ∧ ¬p) ↔ False := by
     exact hnp hp
   · intro hf
     exact False.elim hf
-\`\`\`
+```
 
 ---
 
@@ -433,11 +433,11 @@ theorem contradiction_equiv (p : Prop) : (p ∧ ¬p) ↔ False := by
 
 ### 조건-논리합 동치
 
-\`\`\`
+```
 p → q ≡ ¬p ∨ q
-\`\`\`
+```
 
-\`\`\`lean
+```lean
 -- p → q ↔ ¬p ∨ q
 theorem impl_iff_not_or (p q : Prop) : (p → q) ↔ (¬p ∨ q) := by
   constructor
@@ -449,15 +449,15 @@ theorem impl_iff_not_or (p q : Prop) : (p → q) ↔ (¬p ∨ q) := by
     cases h with
     | inl hnp => exact False.elim (hnp hp)
     | inr hq => exact hq
-\`\`\`
+```
 
 ### 대우(Contrapositive)
 
-\`\`\`
+```
 p → q ≡ ¬q → ¬p
-\`\`\`
+```
 
-\`\`\`lean
+```lean
 -- p → q ↔ ¬q → ¬p
 theorem contrapositive (p q : Prop) : (p → q) ↔ (¬q → ¬p) := by
   constructor
@@ -466,15 +466,15 @@ theorem contrapositive (p q : Prop) : (p → q) ↔ (¬q → ¬p) := by
   · intro h hp
     by_contra hnq
     exact h hnq hp
-\`\`\`
+```
 
 ### 조건문의 부정
 
-\`\`\`
+```
 ¬(p → q) ≡ p ∧ ¬q
-\`\`\`
+```
 
-\`\`\`lean
+```lean
 -- ¬(p → q) ↔ p ∧ ¬q
 theorem not_impl (p q : Prop) : ¬(p → q) ↔ (p ∧ ¬q) := by
   constructor
@@ -490,7 +490,7 @@ theorem not_impl (p q : Prop) : ¬(p → q) ↔ (p ∧ ¬q) := by
       exact hq
   · intro ⟨hp, hnq⟩ hpq
     exact hnq (hpq hp)
-\`\`\`
+```
 
 ---
 
@@ -500,11 +500,11 @@ theorem not_impl (p q : Prop) : ¬(p → q) ↔ (p ∧ ¬q) := by
 
 **문제:** \`p ∨ ¬p\`가 항상 참임을 증명하라.
 
-\`\`\`lean
+```lean
 -- 스켈레톤
 theorem em_taut (p : Prop) : p ∨ ¬p := by
   sorry
-\`\`\`
+```
 
 <details>
 <summary>힌트 보기</summary>
@@ -517,7 +517,7 @@ theorem em_taut (p : Prop) : p ∨ ¬p := by
 <details>
 <summary>정답 보기</summary>
 
-\`\`\`lean
+```lean
 theorem em_taut (p : Prop) : p ∨ ¬p := by
   exact Classical.em p
 
@@ -526,7 +526,7 @@ theorem em_taut' (p : Prop) : p ∨ ¬p := by
   by_cases hp : p
   · exact Or.inl hp
   · exact Or.inr hp
-\`\`\`
+```
 
 </details>
 
@@ -536,20 +536,20 @@ theorem em_taut' (p : Prop) : p ∨ ¬p := by
 
 **문제:** \`(p ∧ q) → p\`를 증명하라.
 
-\`\`\`lean
+```lean
 -- 스켈레톤
 theorem and_elim_left_taut (p q : Prop) : (p ∧ q) → p := by
   sorry
-\`\`\`
+```
 
 <details>
 <summary>정답 보기</summary>
 
-\`\`\`lean
+```lean
 theorem and_elim_left_taut (p q : Prop) : (p ∧ q) → p := by
   intro h
   exact h.1
-\`\`\`
+```
 
 </details>
 
@@ -559,20 +559,20 @@ theorem and_elim_left_taut (p q : Prop) : (p ∧ q) → p := by
 
 **문제:** \`p → (p ∨ q)\`를 증명하라.
 
-\`\`\`lean
+```lean
 -- 스켈레톤
 theorem or_intro_left_taut (p q : Prop) : p → (p ∨ q) := by
   sorry
-\`\`\`
+```
 
 <details>
 <summary>정답 보기</summary>
 
-\`\`\`lean
+```lean
 theorem or_intro_left_taut (p q : Prop) : p → (p ∨ q) := by
   intro hp
   exact Or.inl hp
-\`\`\`
+```
 
 </details>
 
@@ -582,20 +582,20 @@ theorem or_intro_left_taut (p q : Prop) : p → (p ∨ q) := by
 
 **문제:** \`(p ∧ q) → (p ∨ q)\`를 증명하라.
 
-\`\`\`lean
+```lean
 -- 스켈레톤
 theorem and_implies_or (p q : Prop) : (p ∧ q) → (p ∨ q) := by
   sorry
-\`\`\`
+```
 
 <details>
 <summary>정답 보기</summary>
 
-\`\`\`lean
+```lean
 theorem and_implies_or (p q : Prop) : (p ∧ q) → (p ∨ q) := by
   intro ⟨hp, _⟩
   exact Or.inl hp
-\`\`\`
+```
 
 </details>
 
@@ -607,7 +607,7 @@ theorem and_implies_or (p q : Prop) : (p ∧ q) → (p ∨ q) := by
 
 **문제:** \`p ∨ q ↔ q ∨ p\`를 증명하라.
 
-\`\`\`lean
+```lean
 -- 스켈레톤
 theorem or_comm_exercise (p q : Prop) : (p ∨ q) ↔ (q ∨ p) := by
   constructor
@@ -615,12 +615,12 @@ theorem or_comm_exercise (p q : Prop) : (p ∨ q) ↔ (q ∨ p) := by
     sorry
   · intro h
     sorry
-\`\`\`
+```
 
 <details>
 <summary>정답 보기</summary>
 
-\`\`\`lean
+```lean
 theorem or_comm_exercise (p q : Prop) : (p ∨ q) ↔ (q ∨ p) := by
   constructor
   · intro h
@@ -631,7 +631,7 @@ theorem or_comm_exercise (p q : Prop) : (p ∨ q) ↔ (q ∨ p) := by
     cases h with
     | inl hq => exact Or.inr hq
     | inr hp => exact Or.inl hp
-\`\`\`
+```
 
 </details>
 
@@ -641,7 +641,7 @@ theorem or_comm_exercise (p q : Prop) : (p ∨ q) ↔ (q ∨ p) := by
 
 **문제:** \`p ∧ q ↔ q ∧ p\`를 증명하라.
 
-\`\`\`lean
+```lean
 -- 스켈레톤
 theorem and_comm_exercise (p q : Prop) : (p ∧ q) ↔ (q ∧ p) := by
   constructor
@@ -649,19 +649,19 @@ theorem and_comm_exercise (p q : Prop) : (p ∧ q) ↔ (q ∧ p) := by
     sorry
   · intro h
     sorry
-\`\`\`
+```
 
 <details>
 <summary>정답 보기</summary>
 
-\`\`\`lean
+```lean
 theorem and_comm_exercise (p q : Prop) : (p ∧ q) ↔ (q ∧ p) := by
   constructor
   · intro ⟨hp, hq⟩
     exact ⟨hq, hp⟩
   · intro ⟨hq, hp⟩
     exact ⟨hp, hq⟩
-\`\`\`
+```
 
 </details>
 
@@ -671,7 +671,7 @@ theorem and_comm_exercise (p q : Prop) : (p ∧ q) ↔ (q ∧ p) := by
 
 **문제:** \`¬¬p ↔ p\`를 증명하라. (고전 논리 필요)
 
-\`\`\`lean
+```lean
 -- 스켈레톤
 theorem double_neg_exercise (p : Prop) : ¬¬p ↔ p := by
   constructor
@@ -679,7 +679,7 @@ theorem double_neg_exercise (p : Prop) : ¬¬p ↔ p := by
     sorry
   · intro hp hnp
     sorry
-\`\`\`
+```
 
 <details>
 <summary>힌트 보기</summary>
@@ -692,7 +692,7 @@ theorem double_neg_exercise (p : Prop) : ¬¬p ↔ p := by
 <details>
 <summary>정답 보기</summary>
 
-\`\`\`lean
+```lean
 theorem double_neg_exercise (p : Prop) : ¬¬p ↔ p := by
   constructor
   · intro hnnp
@@ -700,7 +700,7 @@ theorem double_neg_exercise (p : Prop) : ¬¬p ↔ p := by
     exact hnnp hnp
   · intro hp hnp
     exact hnp hp
-\`\`\`
+```
 
 </details>
 
@@ -710,7 +710,7 @@ theorem double_neg_exercise (p : Prop) : ¬¬p ↔ p := by
 
 **문제:** \`¬(p ∧ q) ↔ ¬p ∨ ¬q\`를 증명하라.
 
-\`\`\`lean
+```lean
 -- 스켈레톤
 theorem de_morgan_and_exercise (p q : Prop) : ¬(p ∧ q) ↔ (¬p ∨ ¬q) := by
   constructor
@@ -718,12 +718,12 @@ theorem de_morgan_and_exercise (p q : Prop) : ¬(p ∧ q) ↔ (¬p ∨ ¬q) := b
     sorry
   · intro h hpq
     sorry
-\`\`\`
+```
 
 <details>
 <summary>정답 보기</summary>
 
-\`\`\`lean
+```lean
 theorem de_morgan_and_exercise (p q : Prop) : ¬(p ∧ q) ↔ (¬p ∨ ¬q) := by
   constructor
   · intro h
@@ -737,7 +737,7 @@ theorem de_morgan_and_exercise (p q : Prop) : ¬(p ∧ q) ↔ (¬p ∨ ¬q) := b
     cases h with
     | inl hnp => exact hnp hp
     | inr hnq => exact hnq hq
-\`\`\`
+```
 
 </details>
 
@@ -747,7 +747,7 @@ theorem de_morgan_and_exercise (p q : Prop) : ¬(p ∧ q) ↔ (¬p ∨ ¬q) := b
 
 **문제:** \`¬(p ∨ q) ↔ ¬p ∧ ¬q\`를 증명하라.
 
-\`\`\`lean
+```lean
 -- 스켈레톤
 theorem de_morgan_or_exercise (p q : Prop) : ¬(p ∨ q) ↔ (¬p ∧ ¬q) := by
   constructor
@@ -757,12 +757,12 @@ theorem de_morgan_or_exercise (p q : Prop) : ¬(p ∨ q) ↔ (¬p ∧ ¬q) := by
     · sorry
   · intro ⟨hnp, hnq⟩ hpq
     sorry
-\`\`\`
+```
 
 <details>
 <summary>정답 보기</summary>
 
-\`\`\`lean
+```lean
 theorem de_morgan_or_exercise (p q : Prop) : ¬(p ∨ q) ↔ (¬p ∧ ¬q) := by
   constructor
   · intro h
@@ -775,7 +775,7 @@ theorem de_morgan_or_exercise (p q : Prop) : ¬(p ∨ q) ↔ (¬p ∧ ¬q) := by
     cases hpq with
     | inl hp => exact hnp hp
     | inr hq => exact hnq hq
-\`\`\`
+```
 
 </details>
 
@@ -785,7 +785,7 @@ theorem de_morgan_or_exercise (p q : Prop) : ¬(p ∨ q) ↔ (¬p ∧ ¬q) := by
 
 **문제:** \`(p → q) ↔ (¬p ∨ q)\`를 증명하라.
 
-\`\`\`lean
+```lean
 -- 스켈레톤
 theorem impl_iff_or_exercise (p q : Prop) : (p → q) ↔ (¬p ∨ q) := by
   constructor
@@ -793,12 +793,12 @@ theorem impl_iff_or_exercise (p q : Prop) : (p → q) ↔ (¬p ∨ q) := by
     sorry
   · intro h hp
     sorry
-\`\`\`
+```
 
 <details>
 <summary>정답 보기</summary>
 
-\`\`\`lean
+```lean
 theorem impl_iff_or_exercise (p q : Prop) : (p → q) ↔ (¬p ∨ q) := by
   constructor
   · intro h
@@ -809,7 +809,7 @@ theorem impl_iff_or_exercise (p q : Prop) : (p → q) ↔ (¬p ∨ q) := by
     cases h with
     | inl hnp => exact False.elim (hnp hp)
     | inr hq => exact hq
-\`\`\`
+```
 
 </details>
 
@@ -819,7 +819,7 @@ theorem impl_iff_or_exercise (p q : Prop) : (p → q) ↔ (¬p ∨ q) := by
 
 **문제:** \`(p → q) ↔ (¬q → ¬p)\`를 증명하라.
 
-\`\`\`lean
+```lean
 -- 스켈레톤
 theorem contrapos_exercise (p q : Prop) : (p → q) ↔ (¬q → ¬p) := by
   constructor
@@ -827,12 +827,12 @@ theorem contrapos_exercise (p q : Prop) : (p → q) ↔ (¬q → ¬p) := by
     sorry
   · intro h hp
     sorry
-\`\`\`
+```
 
 <details>
 <summary>정답 보기</summary>
 
-\`\`\`lean
+```lean
 theorem contrapos_exercise (p q : Prop) : (p → q) ↔ (¬q → ¬p) := by
   constructor
   · intro h hnq hp
@@ -840,7 +840,7 @@ theorem contrapos_exercise (p q : Prop) : (p → q) ↔ (¬q → ¬p) := by
   · intro h hp
     by_contra hnq
     exact h hnq hp
-\`\`\`
+```
 
 </details>
 
@@ -852,7 +852,7 @@ theorem contrapos_exercise (p q : Prop) : (p → q) ↔ (¬q → ¬p) := by
 
 **문제:** \`p ∨ (q ∧ r) ↔ (p ∨ q) ∧ (p ∨ r)\`를 증명하라.
 
-\`\`\`lean
+```lean
 -- 스켈레톤
 theorem dist_or_and_exercise (p q r : Prop) : 
     (p ∨ (q ∧ r)) ↔ ((p ∨ q) ∧ (p ∨ r)) := by
@@ -865,12 +865,12 @@ theorem dist_or_and_exercise (p q r : Prop) :
       sorry
   · intro ⟨hpq, hpr⟩
     sorry
-\`\`\`
+```
 
 <details>
 <summary>정답 보기</summary>
 
-\`\`\`lean
+```lean
 theorem dist_or_and_exercise (p q r : Prop) : 
     (p ∨ (q ∧ r)) ↔ ((p ∨ q) ∧ (p ∨ r)) := by
   constructor
@@ -887,7 +887,7 @@ theorem dist_or_and_exercise (p q r : Prop) :
       cases hpr with
       | inl hp => exact Or.inl hp
       | inr hr => exact Or.inr ⟨hq, hr⟩
-\`\`\`
+```
 
 </details>
 
@@ -897,7 +897,7 @@ theorem dist_or_and_exercise (p q r : Prop) :
 
 **문제:** \`p ∧ (q ∨ r) ↔ (p ∧ q) ∨ (p ∧ r)\`를 증명하라.
 
-\`\`\`lean
+```lean
 -- 스켈레톤
 theorem dist_and_or_exercise (p q r : Prop) : 
     (p ∧ (q ∨ r)) ↔ ((p ∧ q) ∨ (p ∧ r)) := by
@@ -906,12 +906,12 @@ theorem dist_and_or_exercise (p q r : Prop) :
     sorry
   · intro h
     sorry
-\`\`\`
+```
 
 <details>
 <summary>정답 보기</summary>
 
-\`\`\`lean
+```lean
 theorem dist_and_or_exercise (p q r : Prop) : 
     (p ∧ (q ∨ r)) ↔ ((p ∧ q) ∨ (p ∧ r)) := by
   constructor
@@ -923,7 +923,7 @@ theorem dist_and_or_exercise (p q r : Prop) :
     cases h with
     | inl hpq => exact ⟨hpq.1, Or.inl hpq.2⟩
     | inr hpr => exact ⟨hpr.1, Or.inr hpr.2⟩
-\`\`\`
+```
 
 </details>
 
@@ -935,7 +935,7 @@ theorem dist_and_or_exercise (p q r : Prop) :
 
 **문제:** \`p ∨ (p ∧ q) ↔ p\`를 증명하라.
 
-\`\`\`lean
+```lean
 -- 스켈레톤
 theorem absorption_exercise (p q : Prop) : (p ∨ (p ∧ q)) ↔ p := by
   constructor
@@ -943,12 +943,12 @@ theorem absorption_exercise (p q : Prop) : (p ∨ (p ∧ q)) ↔ p := by
     sorry
   · intro hp
     sorry
-\`\`\`
+```
 
 <details>
 <summary>정답 보기</summary>
 
-\`\`\`lean
+```lean
 theorem absorption_exercise (p q : Prop) : (p ∨ (p ∧ q)) ↔ p := by
   constructor
   · intro h
@@ -957,7 +957,7 @@ theorem absorption_exercise (p q : Prop) : (p ∨ (p ∧ q)) ↔ p := by
     | inr hpq => exact hpq.1
   · intro hp
     exact Or.inl hp
-\`\`\`
+```
 
 </details>
 
@@ -967,7 +967,7 @@ theorem absorption_exercise (p q : Prop) : (p ∨ (p ∧ q)) ↔ p := by
 
 **문제:** \`(p ∨ q) ∨ r ↔ p ∨ (q ∨ r)\`를 증명하라.
 
-\`\`\`lean
+```lean
 -- 스켈레톤
 theorem assoc_or_exercise (p q r : Prop) : 
     ((p ∨ q) ∨ r) ↔ (p ∨ (q ∨ r)) := by
@@ -981,12 +981,12 @@ theorem assoc_or_exercise (p q r : Prop) :
     | inr hr => sorry
   · intro h
     sorry
-\`\`\`
+```
 
 <details>
 <summary>정답 보기</summary>
 
-\`\`\`lean
+```lean
 theorem assoc_or_exercise (p q r : Prop) : 
     ((p ∨ q) ∨ r) ↔ (p ∨ (q ∨ r)) := by
   constructor
@@ -1004,7 +1004,7 @@ theorem assoc_or_exercise (p q r : Prop) :
       cases hqr with
       | inl hq => exact Or.inl (Or.inr hq)
       | inr hr => exact Or.inr hr
-\`\`\`
+```
 
 </details>
 
@@ -1014,7 +1014,7 @@ theorem assoc_or_exercise (p q r : Prop) :
 
 **문제:** \`(p ∧ q) ∧ r ↔ p ∧ (q ∧ r)\`를 증명하라.
 
-\`\`\`lean
+```lean
 -- 스켈레톤
 theorem assoc_and_exercise (p q r : Prop) : 
     ((p ∧ q) ∧ r) ↔ (p ∧ (q ∧ r)) := by
@@ -1023,12 +1023,12 @@ theorem assoc_and_exercise (p q r : Prop) :
     sorry
   · intro ⟨hp, hqr⟩
     sorry
-\`\`\`
+```
 
 <details>
 <summary>정답 보기</summary>
 
-\`\`\`lean
+```lean
 theorem assoc_and_exercise (p q r : Prop) : 
     ((p ∧ q) ∧ r) ↔ (p ∧ (q ∧ r)) := by
   constructor
@@ -1036,7 +1036,7 @@ theorem assoc_and_exercise (p q r : Prop) :
     exact ⟨hp, hq, hr⟩
   · intro ⟨hp, hq, hr⟩
     exact ⟨⟨hp, hq⟩, hr⟩
-\`\`\`
+```
 
 </details>
 
@@ -1048,7 +1048,7 @@ theorem assoc_and_exercise (p q r : Prop) :
 
 **문제:** \`¬(p → q) ↔ p ∧ ¬q\`를 증명하라.
 
-\`\`\`lean
+```lean
 -- 스켈레톤
 theorem not_impl_exercise (p q : Prop) : ¬(p → q) ↔ (p ∧ ¬q) := by
   constructor
@@ -1058,12 +1058,12 @@ theorem not_impl_exercise (p q : Prop) : ¬(p → q) ↔ (p ∧ ¬q) := by
     · sorry  -- ¬q 증명
   · intro ⟨hp, hnq⟩ hpq
     sorry
-\`\`\`
+```
 
 <details>
 <summary>정답 보기</summary>
 
-\`\`\`lean
+```lean
 theorem not_impl_exercise (p q : Prop) : ¬(p → q) ↔ (p ∧ ¬q) := by
   constructor
   · intro h
@@ -1078,7 +1078,7 @@ theorem not_impl_exercise (p q : Prop) : ¬(p → q) ↔ (p ∧ ¬q) := by
       exact hq
   · intro ⟨hp, hnq⟩ hpq
     exact hnq (hpq hp)
-\`\`\`
+```
 
 </details>
 
@@ -1088,7 +1088,7 @@ theorem not_impl_exercise (p q : Prop) : ¬(p → q) ↔ (p ∧ ¬q) := by
 
 **문제:** \`(p → q) ∧ (p → r) ↔ p → (q ∧ r)\`를 증명하라.
 
-\`\`\`lean
+```lean
 -- 스켈레톤
 theorem impl_and_distrib (p q r : Prop) : 
     ((p → q) ∧ (p → r)) ↔ (p → (q ∧ r)) := by
@@ -1101,12 +1101,12 @@ theorem impl_and_distrib (p q r : Prop) :
       sorry
     · intro hp
       sorry
-\`\`\`
+```
 
 <details>
 <summary>정답 보기</summary>
 
-\`\`\`lean
+```lean
 theorem impl_and_distrib (p q r : Prop) : 
     ((p → q) ∧ (p → r)) ↔ (p → (q ∧ r)) := by
   constructor
@@ -1118,7 +1118,7 @@ theorem impl_and_distrib (p q r : Prop) :
       exact (h hp).1
     · intro hp
       exact (h hp).2
-\`\`\`
+```
 
 </details>
 
@@ -1135,16 +1135,16 @@ theorem impl_and_distrib (p q r : Prop) :
 2. \`≡ ¬(¬p) ∧ ¬q\` (제2 드 모르간 법칙)
 3. \`≡ p ∧ ¬q\` (이중 부정)
 
-\`\`\`lean
+```lean
 -- 스켈레톤: 직접 증명
 theorem example6 (p q : Prop) : ¬(p → q) ↔ (p ∧ ¬q) := by
   sorry
-\`\`\`
+```
 
 <details>
 <summary>정답 보기</summary>
 
-\`\`\`lean
+```lean
 theorem example6 (p q : Prop) : ¬(p → q) ↔ (p ∧ ¬q) := by
   constructor
   · intro h
@@ -1159,7 +1159,7 @@ theorem example6 (p q : Prop) : ¬(p → q) ↔ (p ∧ ¬q) := by
       exact hq
   · intro ⟨hp, hnq⟩ hpq
     exact hnq (hpq hp)
-\`\`\`
+```
 
 </details>
 
@@ -1169,16 +1169,16 @@ theorem example6 (p q : Prop) : ¬(p → q) ↔ (p ∧ ¬q) := by
 
 **문제:** \`¬(p ∨ (¬p ∧ q))\`와 \`¬p ∧ ¬q\`가 논리적으로 동치임을 증명하라.
 
-\`\`\`lean
+```lean
 -- 스켈레톤
 theorem example7 (p q : Prop) : ¬(p ∨ (¬p ∧ q)) ↔ (¬p ∧ ¬q) := by
   sorry
-\`\`\`
+```
 
 <details>
 <summary>정답 보기</summary>
 
-\`\`\`lean
+```lean
 theorem example7 (p q : Prop) : ¬(p ∨ (¬p ∧ q)) ↔ (¬p ∧ ¬q) := by
   constructor
   · intro h
@@ -1193,7 +1193,7 @@ theorem example7 (p q : Prop) : ¬(p ∨ (¬p ∧ q)) ↔ (¬p ∧ ¬q) := by
     cases h with
     | inl hp => exact hnp hp
     | inr hpq => exact hnq hpq.2
-\`\`\`
+```
 
 </details>
 
@@ -1203,20 +1203,20 @@ theorem example7 (p q : Prop) : ¬(p ∨ (¬p ∧ q)) ↔ (¬p ∧ ¬q) := by
 
 **문제:** \`(p ∧ q) → (p ∨ q)\`가 항진명제임을 증명하라.
 
-\`\`\`lean
+```lean
 -- 스켈레톤
 theorem example8 (p q : Prop) : (p ∧ q) → (p ∨ q) := by
   sorry
-\`\`\`
+```
 
 <details>
 <summary>정답 보기</summary>
 
-\`\`\`lean
+```lean
 theorem example8 (p q : Prop) : (p ∧ q) → (p ∨ q) := by
   intro ⟨hp, _⟩
   exact Or.inl hp
-\`\`\`
+```
 
 </details>
 
@@ -1241,14 +1241,14 @@ theorem example8 (p q : Prop) : (p ∧ q) → (p ∨ q) := by
 
 ### Lean4 라이브러리 활용
 
-\`\`\`lean
+```lean
 -- 많은 논리적 동치가 이미 증명되어 있다
 #check Or.comm        -- p ∨ q ↔ q ∨ p
 #check And.comm       -- p ∧ q ↔ q ∧ p
 #check not_not        -- ¬¬a ↔ a
 #check imp_iff_not_or -- p → q ↔ ¬p ∨ q
 #check Classical.em   -- p ∨ ¬p
-\`\`\`
+```
 
 ---
 
