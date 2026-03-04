@@ -1,4 +1,4 @@
-# Lean 4 튜토리얼 — Part 9-D: 순열과 조합 (Permutations and Combinations)
+# Lean4 완전 정복 가이드 —  — Part 9-D: 순열과 조합 (Permutations and Combinations)
 
 > **시리즈 위치**: Rosen 이산수학 8판 §6.3  
 > **선수 지식**: Part 9-A (곱셈·덧셈 법칙), Part 9-B (뺄셈·나눗셈 법칙), Part 9-C (비둘기집 원리)  
