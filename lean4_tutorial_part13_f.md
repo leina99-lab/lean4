@@ -1,4 +1,4 @@
-# Part 13-F: 연결성 (1) — 경로, 순환, 연결 그래프
+# Lean4 완전 정복 가이드 —  Part 13-F: 연결성 (1) — 경로, 순환, 연결 그래프
 
 > **Rosen 이산수학 8판 · Section 10.4 기반**
 > 『Mathematics in Lean』 + Lean 4 공식화
