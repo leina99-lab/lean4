@@ -225,7 +225,7 @@ example (a b c : ℝ) : a * b * c = b * (a * c) := by
 ⊢ b * (a * c) = b * (a * c)
 ```
 
-양쪽이 같으므로, Lean이 자동으로 "증명 완료!"라고 한다. 🎉
+양쪽이 같으므로, Lean이 자동으로 "증명 완료!"라고 한다. 
 
 ### 3.3 `rw`의 방향: 왼쪽 → 오른쪽, 오른쪽 → 왼쪽
 
@@ -509,7 +509,7 @@ example (a b c : ℝ) : c * b * a = b * (a * c) := by
 ```
 
 <details>
-<summary>✅ 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (a b c : ℝ) : c * b * a = b * (a * c) := by
@@ -540,7 +540,7 @@ example (a b : ℝ) : (a + b) * (a - b) = a ^ 2 - b ^ 2 := by
 ```
 
 <details>
-<summary>✅ 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 -- ring을 쓰면 한 줄:
@@ -563,7 +563,7 @@ example (a b c d : ℝ) (h₁ : a ≤ b) (h₂ : c < d) : a + c < b + d := by
 ```
 
 <details>
-<summary>✅ 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (a b c d : ℝ) (h₁ : a ≤ b) (h₂ : c < d) : a + c < b + d := by
@@ -589,7 +589,7 @@ example (a b : ℝ) (h : a ≤ b) : exp a ≤ exp b := by
 ```
 
 <details>
-<summary>✅ 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 -- 방법 1: rw로 목표를 동치인 것으로 바꿈
@@ -623,7 +623,7 @@ example (a b c d : ℝ) (hyp : c = b * a - d) (hyp' : d = a * b) : c = 0 := by
 ```
 
 <details>
-<summary>✅ 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (a b c d : ℝ) (hyp : c = b * a - d) (hyp' : d = a * b) : c = 0 := by
