@@ -1,4 +1,4 @@
-# 📘 Lean 4 튜토리얼 — Part 9-G: 객체를 상자에 분배하기
+# Lean4 완전 정복 가이드 —  Part 9-G: 객체를 상자에 분배하기
 
 > **Rosen 이산수학 8판 §6.5.5 기반**
 > 이전 파트(Part 9-F)에서 **반복을 허용하는 순열**(permutations with repetition)과 **반복을 허용하는 조합**(combinations with repetition)을 배웠다.
