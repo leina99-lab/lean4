@@ -52,6 +52,7 @@ Lean 4의 세계에서 **모든 것**은 **타입**(type)을 가진다. "이 물
 Lean 4에서는 `#check` 명령어로 어떤 것의 타입을 확인할 수 있다:
 
 ```lean
+import Mathlib.Data.Real.Basic
 #check 2 + 2        -- 2 + 2 : ℕ   (자연수 타입)
 #check (3.14 : ℝ)   -- 3.14 : ℝ   (실수 타입)
 ```
