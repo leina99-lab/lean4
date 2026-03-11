@@ -1,9 +1,9 @@
-# 『Mathematics in Lean』Part 1: 
+# 『Mathematics in Lean』 한국어 튜토리얼 — Part 1: 기초 중의 기초
 
 > **원서**: *Mathematics in Lean* (Jeremy Avigad, Patrick Massot) Release v4.19.0  
-> **대상**: Lean 4에서 **정리**(theorem)가 뭔지도 모르는 중학생  
+> **대상**: Lean 4에서 **정리**(theorem)가 뭔지도 모르는 학생   
 > **목표**: `rw`(치환/대입 = 슈퍼포지션), `lemma`와 `theorem`의 관계, `→`(if)와 `↔`(iff)의 차이를 한 번에 이해하기  
-> **선행학습**: 이 문서를 읽기 전에 `lean4_tutorial_part0.md`(기호와 키워드 사전)를 먼저 읽어 두면 좋다. 코드에 등장하는 `:`, `:=`, `⊢`, `→`, `↔` 같은 기호들의 의미를 미리 알고 있으면 이 문서의 내용을 훨씬 빠르게 흡수할 수 있다.
+> **선행학습**: 이 문서를 읽기 전에 `lean4_tutorial_part0.md`(기호와 키워드 사전)를 먼저 읽어 두면 좋다. 코드에 등장하는 `:`, `:=`, `⊢`, `→`, `↔` 같은 기호들의 의미를 미리 알고 있으면 이 문서의 내용을 훨씬 빠르게 흡수할 수 있다.  
 
 ---
 
@@ -113,7 +113,7 @@ theorem easy : 2 + 2 = 4 := rfl
 theorem hard : ∀ x y z n : ℕ, n > 2 ∧ x * y * z ≠ 0 → x ^ n + y ^ n ≠ z ^ n := sorry
 ```
 
-위는 유명한 **페르마의 마지막 정리**(Fermat's Last Theorem)이다. `sorry`로 일단 넘어갈 수 있다.
+위는 유명한 **페르마의 마지막 정리**(Fermat's Last Theorem)이다. `sorry`로 일단 넘어갈 수 있지만, Lean은 이것이 "미완성"이라는 것을 알고 있다. 경고를 표시한다.
 
 > `sorry`는 연습할 때 유용하지만, **최종 증명에서는 절대 남겨두면 안 된다**. 마치 시험에서 "풀이 생략"으로는 점수를 받을 수 없는 것과 같다.
 
@@ -382,8 +382,13 @@ Lean 4에서 `→`는 두 가지 역할을 한다:
 사실 이 둘은 Lean 내부적으로 **같은 것**이다! "P의 증명을 받아서 Q의 증명을 돌려주는 함수"가 바로 "P이면 Q이다"의 증명이기 때문이다. (이것을 **커리-하워드 대응**(Curry-Howard correspondence)이라 한다. 지금은 이름만 알아두자.)
 
 ```lean
--- "0 ≤ x이면 |x| = x이다"
-#check ∀ x : ℝ, 0 ≤ x → |x| = x
+import Mathlib.Tactic
+
+-- "0 ≤ x이면 |x| = x이다" — 이 정리의 타입을 확인
+#check @abs_of_nonneg   -- abs_of_nonneg : 0 ≤ a → |a| = a
+
+-- 실제로 사용해보기
+example (x : ℝ) (h : 0 ≤ x) : |x| = x := abs_of_nonneg h
 ```
 
 #### `→`의 증명: `intro`
@@ -405,9 +410,17 @@ example (a b c : ℝ) : a ≤ b → a + c ≤ b + c := by
 - `h hp`로 `Q`의 증명을 얻는다 (함수 적용처럼!)
 
 ```lean
--- my_lemma : ... → ... → ... → |x * y| < ε
--- 이 정리를 "적용"하면, 각 전제조건이 새로운 목표가 된다
--- apply my_lemma
+import Mathlib.Tactic
+
+-- h : P → Q 가 있고, hp : P 가 있으면
+-- h hp 로 Q의 증명을 얻는다
+example (P Q : Prop) (h : P → Q) (hp : P) : Q :=
+  h hp    -- 함수 적용처럼 h에 hp를 넣으면 Q가 나온다
+
+-- apply를 쓰는 방식 (같은 증명)
+example (P Q : Prop) (h : P → Q) (hp : P) : Q := by
+  apply h   -- 목표가 Q → 전제인 P로 바뀐다
+  exact hp  -- P는 hp로 해결
 ```
 
 ### 4.3 Lean 4에서의 `↔`
@@ -415,8 +428,16 @@ example (a b c : ℝ) : a ≤ b → a + c ≤ b + c := by
 `↔`는 **양방향 함의**이다. `A ↔ B`는 `(A → B) ∧ (B → A)`와 같다.
 
 ```lean
+import Mathlib.Tactic
+
+open Real
+
 -- "exp a ≤ exp b ↔ a ≤ b" 라는 정리가 있다
-#check (exp_le_exp : exp a ≤ exp b ↔ a ≤ b)
+#check @Real.exp_le_exp
+-- Real.exp_le_exp : exp ?x ≤ exp ?y ↔ ?x ≤ ?y
+
+-- 변수를 선언해서 타입을 확인
+example (a b : ℝ) : exp a ≤ exp b ↔ a ≤ b := Real.exp_le_exp
 ```
 
 #### `↔`를 분해하기: `.mp`와 `.mpr`
@@ -431,21 +452,38 @@ example (a b c : ℝ) : a ≤ b → a + c ≤ b + c := by
 | `h.2` | `B → A` | 역방향 (`.mpr`와 같음) | 두 번째 |
 
 ```lean
--- h : exp a ≤ exp b ↔ a ≤ b 일 때
+import Mathlib.Tactic
 
--- 정방향: a ≤ b이면 exp a ≤ exp b
--- h.mpr : a ≤ b → exp a ≤ exp b
+open Real
 
--- 역방향: exp a ≤ exp b이면 a ≤ b
--- h.mp : exp a ≤ exp b → a ≤ b
+variable (a b : ℝ)
+
+-- Real.exp_le_exp : exp a ≤ exp b ↔ a ≤ b
+
+-- 정방향 (.mp): exp a ≤ exp b → a ≤ b
+example (h : exp a ≤ exp b) : a ≤ b :=
+  Real.exp_le_exp.mp h
+
+-- 역방향 (.mpr): a ≤ b → exp a ≤ exp b
+example (h : a ≤ b) : exp a ≤ exp b :=
+  Real.exp_le_exp.mpr h
 ```
 
 #### 실제 예제
 
 ```lean
-example (h : a ≤ b) : exp a ≤ exp b := by
-  rw [exp_le_exp]    -- ↔ 정리를 rw로! 목표가 a ≤ b로 바뀜
-  exact h            -- h가 정확히 a ≤ b이므로 끝!
+import Mathlib.Tactic
+
+open Real
+
+-- rw로 ↔ 정리를 사용하는 방법
+example (a b : ℝ) (h : a ≤ b) : exp a ≤ exp b := by
+  rw [Real.exp_le_exp]  -- 목표가 exp a ≤ exp b → a ≤ b로 바뀜
+  exact h               -- h가 정확히 a ≤ b이므로 끝
+
+-- .mpr로 직접 사용하는 방법 (더 간결)
+example (a b : ℝ) (h : a ≤ b) : exp a ≤ exp b :=
+  Real.exp_le_exp.mpr h
 ```
 
 **여기서 핵심**: `rw`는 `=`(등호)뿐 아니라 `↔`(동치)에도 쓸 수 있다!
