@@ -165,10 +165,15 @@ example (h : a ≤ b) : exp a ≤ exp b :=
 
 ```lean
 -- h : P ∧ Q  →  'P이고 Q이다'라는 증거 h가 있다
+example (P Q : Prop) (h : P ∧ Q) : P := h.1  -- P의 증거
+example (P Q : Prop) (h : P ∧ Q) : Q := h.2  -- Q의 증거
 
+-- 또는 증명 블록 안에서:
+example (P Q : Prop) (h : P ∧ Q) : P ∧ Q := by
+  constructor
 -- 꺼내기:
-h.1  -- P의 증거
-h.2  -- Q의 증거
+  · exact h.1  -- P의 증거
+  · exact h.2  -- Q의 증거
 
 -- 만들기:
 example : 2 > 1 ∧ 3 > 2 := by
