@@ -536,4 +536,4 @@ theorem p3 : [1, 2].length = 2 := rfl
 
 이 편에서 Lean4의 기본 개념을 익혔다. 앞으로 나오는 기호(`→`, `↔`, `∀`, `∃` 등)나 키워드(`rw`, `intro`, `apply` 등)가 낯설 때는 언제든지 **`lean4_tutorial_dict.md`(기호·키워드 사전)**를 참조한다.
 
-본론은 **`Mathematics_in_Lean_한국어_Part1_기초.md`**에서 로젠 1장(명제 논리)을 Lean4로 구현하는 것으로 시작된다.
+본론은 **`lean4_tutorial_part1.md`**에서 로젠 1장(명제 논리)을 Lean4로 구현하는 것으로 시작된다.
