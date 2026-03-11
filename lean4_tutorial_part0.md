@@ -274,7 +274,7 @@ theorem ex5' (a b : Nat) : a + b = b + a := by ring
 
 ---
 
-## 1.5 정의(def)와 정리(theorem)의 차이
+## 1.5 정의(def)와 정리(theorem)의 차이— "이름표를 붙여주세요"
 
 ### `def` — 값이나 함수를 정의
 
