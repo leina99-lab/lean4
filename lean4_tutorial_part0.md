@@ -296,6 +296,11 @@ def double (n : Nat) : Nat := 2 * n
 
 입력: n (자연수)
 출력: 2 * n (자연수)
+내용: 2 * n 을 계산함
+```
+```lean
+#eval double 5   -- 결과: 10
+#eval double 100 -- 결과: 200
 ```
 
 ### `theorem` — 참인 명제를 증명
