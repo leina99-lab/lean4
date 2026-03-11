@@ -1,4 +1,4 @@
-# 『Mathematics in Lean』 한국어 튜토리얼 — Part 1: 기초 중의 기초
+# 『Mathematics in Lean』Part 1: 
 
 > **원서**: *Mathematics in Lean* (Jeremy Avigad, Patrick Massot) Release v4.19.0
 > **대상**: Lean 4에서 **정리**(theorem)가 뭔지도 모르는 중학생
