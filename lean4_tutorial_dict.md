@@ -113,7 +113,8 @@ h : a ≤ b
 def double : Nat → Nat := fun n => n * 2
 
 -- 경우 2: 논리 함의
-theorem h : a ≤ b → a + 1 ≤ b + 1 := by
+import Mathlib.Tactic
+theorem h (a b : ℝ) : a ≤ b → a + 1 ≤ b + 1 := by
   intro ha   -- 'a ≤ b이다'를 ha라는 이름으로 가정에 추가
   linarith   -- 자동 증명
 ```
