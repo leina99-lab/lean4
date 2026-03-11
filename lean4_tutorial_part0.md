@@ -24,9 +24,9 @@
 ```lean
 -- 읽는 법:  이름 : 타입
 
-#check 3 : Nat        -- 3은 자연수(Nat)이다
-#check true : Bool    -- true는 불리언(Bool)이다
-#check h : a ≤ b     -- h는 'a ≤ b'라는 명제의 증명이다
+#check (3 : Nat )       -- 3은 자연수(Nat)이다
+#check (true : Bool)    -- true는 불리언(Bool)이다
+#check (h : a ≤ b)     -- h는 'a ≤ b'라는 명제의 증명이다
 ```
 
 **비유:** 도서관 책 라벨. 책(왼쪽)에 장르 라벨(오른쪽)이 붙어 있다.
