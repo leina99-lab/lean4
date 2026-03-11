@@ -1,8 +1,8 @@
 # 『Mathematics in Lean』Part 1: 
 
-> **원서**: *Mathematics in Lean* (Jeremy Avigad, Patrick Massot) Release v4.19.0
-> **대상**: Lean 4에서 **정리**(theorem)가 뭔지도 모르는 중학생
-> **목표**: `rw`(치환/대입 = 슈퍼포지션), `lemma`와 `theorem`의 관계, `→`(if)와 `↔`(iff)의 차이를 한 번에 이해하기
+> **원서**: *Mathematics in Lean* (Jeremy Avigad, Patrick Massot) Release v4.19.0  
+> **대상**: Lean 4에서 **정리**(theorem)가 뭔지도 모르는 중학생  
+> **목표**: `rw`(치환/대입 = 슈퍼포지션), `lemma`와 `theorem`의 관계, `→`(if)와 `↔`(iff)의 차이를 한 번에 이해하기  
 > **선행학습**: 이 문서를 읽기 전에 `lean4_tutorial_part0.md`(기호와 키워드 사전)를 먼저 읽어 두면 좋다. 코드에 등장하는 `:`, `:=`, `⊢`, `→`, `↔` 같은 기호들의 의미를 미리 알고 있으면 이 문서의 내용을 훨씬 빠르게 흡수할 수 있다.
 
 ---
