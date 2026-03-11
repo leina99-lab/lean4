@@ -113,7 +113,7 @@ theorem easy : 2 + 2 = 4 := rfl
 theorem hard : ∀ x y z n : ℕ, n > 2 ∧ x * y * z ≠ 0 → x ^ n + y ^ n ≠ z ^ n := sorry
 ```
 
-위는 유명한 **페르마의 마지막 정리**(Fermat's Last Theorem)이다. `sorry`로 일단 넘어갈 수 있지만, Lean은 이것이 "미완성"이라는 것을 알고 있다. 경고를 표시한다.
+위는 유명한 **페르마의 마지막 정리**(Fermat's Last Theorem)이다. `sorry`로 일단 넘어갈 수 있다.
 
 > `sorry`는 연습할 때 유용하지만, **최종 증명에서는 절대 남겨두면 안 된다**. 마치 시험에서 "풀이 생략"으로는 점수를 받을 수 없는 것과 같다.
 
