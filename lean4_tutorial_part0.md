@@ -334,6 +334,7 @@ theorem two_plus_two : 2 + 2 = 4 := rfl
 ### `#eval` — "계산해봐!"
 
 ```lean
+import Mathlib.Data.Real.Basic
 #eval 2 + 3               -- 5
 #eval 10 * 20             -- 200
 #eval "Hello, " ++ "World!" -- "Hello, World!"
