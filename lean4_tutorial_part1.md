@@ -777,4 +777,4 @@ rw [h1, h2]     연속 치환
 
 ---
 
-이 문서에서 다룬 `rw`, `theorem/lemma`, `→/↔`, `calc`는 Lean 4 증명의 핵심 골격이다. 기호나 키워드의 의미가 다시 헷갈릴 때는 `lean4_tutorial_part0.md`를 참고하면 된다.
+이 문서에서 다룬 `rw`, `theorem/lemma`, `→/↔`, `calc`는 Lean 4 증명의 핵심 골격이다. 기호나 키워드의 의미가 다시 헷갈릴 때는 `**lean4_tutorial_part0.md**`를 참고하면 된다.
