@@ -135,7 +135,7 @@ example (a b c : ℝ) : c * b * a = b * (a * c) := by
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (a b c : ℝ) : c * b * a = b * (a * c) := by
@@ -160,7 +160,7 @@ example (a b c : ℝ) : a * (b * c) = b * (a * c) := by
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (a b c : ℝ) : a * (b * c) = b * (a * c) := by
@@ -180,7 +180,7 @@ example (a b c : ℝ) : a + b + c = c + b + a := by
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (a b c : ℝ) : a + b + c = c + b + a := by
@@ -209,7 +209,7 @@ example (a b c : ℝ) : a * b * c = b * c * a := by
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (a b c : ℝ) : a * b * c = b * c * a := by
@@ -294,7 +294,7 @@ example (a b c d e f : ℝ) (h : b * c = e * f) :
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (a b c d e f : ℝ) (h : b * c = e * f) : 
@@ -315,7 +315,7 @@ example (a b c : ℝ) (h : a = b) : a - b = 0 := by
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (a b c : ℝ) (h : a = b) : a - b = 0 := by
@@ -400,7 +400,7 @@ example (a b c d : ℝ) : (a + b) * (c + d) = a * c + a * d + b * c + b * d :=
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (a b c d : ℝ) : (a + b) * (c + d) = a * c + a * d + b * c + b * d :=
@@ -425,7 +425,7 @@ example (a b : ℝ) : (a + b) * (a - b) = a ^ 2 - b ^ 2 :=
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (a b : ℝ) : (a + b) * (a - b) = a ^ 2 - b ^ 2 := by
@@ -499,7 +499,7 @@ example (a b c : ℝ) : a * (b + c) = a * b + a * c := by
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (a b c : ℝ) : a * (b + c) = a * b + a * c := by
@@ -515,7 +515,7 @@ example (a b : ℝ) : (a + b) ^ 3 = a ^ 3 + 3 * a ^ 2 * b + 3 * a * b ^ 2 + b ^ 
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (a b : ℝ) : (a + b) ^ 3 = a ^ 3 + 3 * a ^ 2 * b + 3 * a * b ^ 2 + b ^ 3 := by
@@ -531,7 +531,7 @@ example (a b c : ℝ) (h : a = 2 * b) : a * c = 2 * b * c := by
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 example (a b c : ℝ) (h : a = 2 * b) : a * c = 2 * b * c := by
@@ -645,7 +645,7 @@ theorem add_neg_cancel_right (R : Type*) [Ring R] (a b : R) :
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 theorem add_neg_cancel_right (R : Type*) [Ring R] (a b : R) : 
@@ -669,7 +669,7 @@ theorem add_left_cancel (R : Type*) [Ring R] {a b c : R} (h : a + b = a + c) :
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 theorem add_left_cancel (R : Type*) [Ring R] {a b c : R} (h : a + b = a + c) : 
@@ -704,7 +704,7 @@ theorem add_right_cancel (R : Type*) [Ring R] {a b c : R} (h : a + b = c + b) :
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 theorem add_right_cancel (R : Type*) [Ring R] {a b c : R} (h : a + b = c + b) : 
@@ -775,7 +775,7 @@ theorem zero_mul (R : Type*) [Ring R] (a : R) : 0 * a = 0 := by
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 theorem zero_mul (R : Type*) [Ring R] (a : R) : 0 * a = 0 := by
@@ -798,7 +798,7 @@ theorem neg_eq_of_add_eq_zero (R : Type*) [Ring R] {a b : R} (h : a + b = 0) :
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 theorem neg_eq_of_add_eq_zero (R : Type*) [Ring R] {a b : R} (h : a + b = 0) : 
@@ -822,7 +822,7 @@ theorem neg_neg (R : Type*) [Ring R] (a : R) : - -a = a := by
 ```
 
 <details>
-<summary>💡 답 보기</summary>
+<summary> 답 보기</summary>
 
 ```lean
 theorem neg_neg (R : Type*) [Ring R] (a : R) : - -a = a := by
@@ -872,4 +872,4 @@ example (a b : ℕ) : (a + b) + (a + b) = 2 * (a + b) := by
 
 ---
 
-**(Part B에서 계속: 정리와 보조정리 사용, 부등식 증명, apply와 exact, linarith)**
+(**Part B에서 계속: 정리와 보조정리 사용, 부등식 증명, apply와 exact, linarith**)
